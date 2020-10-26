@@ -1,0 +1,48 @@
+---
+title: "Chap2"
+\\\\
+author: "Zhu Qiang"
+date: "2020/10/25"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Premise: 
+n as the number of distinct observation.
+p as the number of variables for regression.
+
+The input has many names, such as predictors, independent variables, features;
+the output is called the response or dependent variables
+
+y = f(X) + error-term  f:represent the systematic info that X brings to Y
+
+##
+2.1.1 prediction and inference
+prediction: treat f as black box, minimize the expected value of [f(X)-f^(X)]**2---the reducible error
+inference: want to know more about the relationship between predictor and response
+
+2.1.2 How do we estimate f
+parametric and non-parametric model:
+
+parametric model: two step--> model selection and find beta using statistics
+non-parametric model : no assumptions about explicit functional form about f
+over-fitting issues.
+
+2.1.3 trade off between prediction accuarcy and model interpretability
+
+2.1.4 Supervised and Unsupervised learning
+most are supervised, unsupervied learning method like cluster analysis, means the x factor will not necessarily have corresponding y.
+
+2.1.5 Regression and classification problems
+quantitative and qualitative(use classification binary ) 
+
+## 2.2 Accessing the accuracy
+
+MSE
+```{r}
+load()
+
+```
