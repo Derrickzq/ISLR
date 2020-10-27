@@ -41,8 +41,41 @@ quantitative and qualitative(use classification binary )
 
 ## 2.2 Accessing the accuracy
 
-MSE
-```{r}
-load()
+MSE(Mean square error)：the normal way to do that is to calculate the MSE of training data and test data to minimize the both. But when it comes to lack of the training data, the overfitting problem will exist.
+** Note that regardless of whether or not overfitting has occurred, we almost always expect the training MSE to be smaller than the test MSE because most statistical learning methods either directly or indirectly seek to minimize the training MSE. Overfitting refers specifically to the case in which a less flexible model would have yielded a smaller test MSE.**
+$$E(y{0}-f{hat}(x{0}))^2 = var(f{hat}(x{0}))+[bias(f{hat}(x{0}))]^2+var(error)$$
+1. variance means the amount by which the f will change if using different datasets at $$X{0}$$.(Different datasets will cause different 'f). ***It is obvious that the more flexible models will cause the hight model variance.***
 
+2. bias means the error that introduces by approximating the true life questions. In '2.11 picture', it is clear that the model will not represent in a linear way, so the linear model will always give a bias no matter how many independent variables you contribute in into. *** MORE FLEXIBLE MODEL WILL GIVE LESS BIAS***
+
+3. '2.12 picture should be paid attention.
+
+**Not linear regression**
+1. classification setting
+$$I(y{i}!=y^{hat}{i})$$
+sum of the above one will get the error rate.
+Average of that will get the training or test error rate.
+
+2. Bayes Classifier
+The test error rate is minimized, by average, by a simple classifier that assigns each observation to the most likely group, given its predictor value.
+$$Pr(Y = j| X=x{0})$$
+is largest.
+以上的等式就叫做bayes classifier.
+  The Bayes classifier produces the lowest possible test error rate, called the Bayes error rate. 
+
+**K-Nearest Neighbors**
+In theory, we should predict the qualitative response using the bayes classfier. But for real data, we have no knowledge of the conditional distribution of Y given X, so Bayes is not possible to compute.
+本节的重点依然在于error rate 的评价上，但k=1，k=10,k=100时 KNN展现除了完全不一样的error rate of training data and test data.
+
+Lab for R
+matrix and vector:slicing
+read.table and read.csv(header=True,na.string='?')
+na.omit
+attach():use the attach() function in order to tell R to make the variables in this data frame available by name.--before: auto$colname-->after: colname
+```{r}
+library('ISLR')
+attach(Auto)
+pairs(~ mpg + displacement + horsepower +weight)
+plot(horsepower,mpg)
+identify(horsepower,mpg,name)
 ```
